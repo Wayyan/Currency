@@ -19,7 +19,7 @@ class CurrencyNetworkSourceImpl constructor(
     val data = rawResponse.currencies.map {
       CurrencyModel(currencyName = it.key, currencyValue = it.value)
     }.toMutableList()
-    data.add(0, CurrencyModel("USD", 1.0))
+    data.add(0, CurrencyModel("USDUSD", 1.0))
     return data
   }
 }

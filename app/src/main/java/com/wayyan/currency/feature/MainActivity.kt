@@ -1,10 +1,7 @@
 package com.wayyan.currency.feature
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.lifecycle.LifecycleOwner
-import com.wayyan.currency.R.layout
 import com.wayyan.currency.base.core.BaseActivity
 import com.wayyan.currency.base.helper.AsyncViewState
 import com.wayyan.currency.databinding.ActivityMainBinding
@@ -30,7 +27,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
   }
 
   override fun observeLiveData(owner: LifecycleOwner) {
-    viewModel.currencyLiveData.observe(owner, {
+    viewModel.currencyNamesLiveData.observe(owner, {
       when (it) {
         is AsyncViewState.Loading -> {
           Timber.d("Loading")
@@ -42,7 +39,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         is AsyncViewState.Success -> {
           it.value.forEach {
-            Timber.d(it.currencyName)
+            Timber.d(it)
           }
           this.showShortToast("Fetched >> ${it.value.size}")
         }
