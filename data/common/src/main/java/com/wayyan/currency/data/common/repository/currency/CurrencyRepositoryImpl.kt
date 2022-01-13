@@ -10,14 +10,14 @@ class CurrencyRepositoryImpl constructor(
   override fun getCurrencyNames(): List<String> {
     val cacheData = cacheSource.getCurrencyData()
 
-    if (cacheData.isEmpty()) {
+    return if (cacheData.isEmpty()) {
       val currencyData = networkSource.fetchCurrencyData()
       cacheSource.setCurrencyData(currencyData)
-      return currencyData.map {
-        it.currencyName
+      currencyData.map {
+        it.currencyName.replaceFirst("USD", "")
       }
     } else {
-      return cacheData.map {
+      cacheData.map {
         it.currencyName.replaceFirst("USD", "")
       }
     }
