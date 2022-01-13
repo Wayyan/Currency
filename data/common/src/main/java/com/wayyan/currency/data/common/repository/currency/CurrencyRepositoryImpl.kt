@@ -18,8 +18,36 @@ class CurrencyRepositoryImpl constructor(
       }
     } else {
       return cacheData.map {
-        it.currencyName
+        it.currencyName.replaceFirst("USD", "")
       }
     }
+  }
+
+  override fun getCurrencyData(name: String): List<CurrencyModel> {
+    val cacheData = cacheSource.getCurrencyData().map {
+      CurrencyModel(
+        currencyName = it.currencyName.replaceFirst("USD", ""),
+        currencyValue = it.currencyValue
+      )
+    }
+    val selectedCurrency = cacheData.find {
+      it.currencyName.equals(name, true)
+    }
+
+    selectedCurrency?.let {
+      val multiplier = 1 / it.currencyValue
+
+      val excludeData = cacheData.filter { m ->
+        !m.currencyName.equals(name, true)
+      }
+
+      return excludeData.map { m ->
+        CurrencyModel(
+          currencyName = m.currencyName,
+          currencyValue = m.currencyValue * multiplier
+        )
+      }
+    }
+    return cacheData
   }
 }
