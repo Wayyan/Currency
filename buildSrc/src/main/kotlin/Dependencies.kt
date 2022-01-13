@@ -4,7 +4,7 @@ object BuildConfig {
   const val targetSdk = 31
 
   private const val versionMajor = 1
-  private const val versionMinor = 2
+  private const val versionMinor = 0
   private const val versionPatch = 0
   private const val versionBuild = 0
 
@@ -336,6 +336,12 @@ object ExoPlayer {
   const val dash = "com.google.android.exoplayer:exoplayer-dash:$version"
 
   //2.10.5
+}
+
+object Realm {
+  private const val version = "10.9.0"
+
+  const val gradle_plugin = "io.realm:realm-gradle-plugin:$version"
 }
 
 object MDetect {

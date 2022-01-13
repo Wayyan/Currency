@@ -5,8 +5,11 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
+import android.view.WindowManager
+import com.wayyan.currency.databinding.DialogPromptBinding
 
 fun Context.getDialog(layout: Int): Dialog {
   val dialog = Dialog(this)
@@ -44,41 +47,41 @@ fun Context.getScreenHeight(): Int {
   return Resources.getSystem().displayMetrics.heightPixels
 }
 
-// fun Context.showPromptDialog(msg: String, btnText: String? = null) {
-//     val binding = DialogPromptBinding.inflate(LayoutInflater.from(this))
-//     val dialog = this.getDialog(binding.root, false)
-//     dialog.window?.setLayout(
-//         (this.getScreenWidth() * 0.9).toInt(),
-//         WindowManager.LayoutParams.WRAP_CONTENT
-//     )
-//     binding.tvPrompt.text = msg
-//     btnText?.let {
-//         binding.tvOk.text = it
-//     }
-//     binding.tvOk.setOnClickListener {
-//         dialog.shouldDismiss()
-//     }
-//     dialog.shouldShow()
-// }
-//
-// fun Context.showActionPromptDialog(msg: String, btnText: String? = null, action: () -> Unit) {
-//     val binding = DialogPromptBinding.inflate(LayoutInflater.from(this))
-//     val dialog = this.getDialog(binding.root, false)
-//     dialog.window?.setLayout(
-//         (this.getScreenWidth() * 0.9).toInt(),
-//         WindowManager.LayoutParams.WRAP_CONTENT
-//     )
-//     binding.tvPrompt.text = msg
-//     btnText?.let {
-//         binding.tvOk.text = it
-//     }
-//     binding.tvOk.setOnClickListener {
-//         action()
-//         dialog.shouldDismiss()
-//     }
-//     dialog.shouldShow()
-// }
-//
+fun Context.showPromptDialog(msg: String, btnText: String? = null) {
+  val binding = DialogPromptBinding.inflate(LayoutInflater.from(this))
+  val dialog = this.getDialog(binding.root, false)
+  dialog.window?.setLayout(
+    (this.getScreenWidth() * 0.9).toInt(),
+    WindowManager.LayoutParams.WRAP_CONTENT
+  )
+  binding.tvPrompt.text = msg
+  btnText?.let {
+    binding.tvOk.text = it
+  }
+  binding.tvOk.setOnClickListener {
+    dialog.shouldDismiss()
+  }
+  dialog.shouldShow()
+}
+
+fun Context.showActionPromptDialog(msg: String, btnText: String? = null, action: () -> Unit) {
+  val binding = DialogPromptBinding.inflate(LayoutInflater.from(this))
+  val dialog = this.getDialog(binding.root, false)
+  dialog.window?.setLayout(
+    (this.getScreenWidth() * 0.9).toInt(),
+    WindowManager.LayoutParams.WRAP_CONTENT
+  )
+  binding.tvPrompt.text = msg
+  btnText?.let {
+    binding.tvOk.text = it
+  }
+  binding.tvOk.setOnClickListener {
+    action()
+    dialog.shouldDismiss()
+  }
+  dialog.shouldShow()
+}
+
 // fun Context.showActionPromptDialog(
 //     msg: String,
 //     btnTextOne: String? = null,

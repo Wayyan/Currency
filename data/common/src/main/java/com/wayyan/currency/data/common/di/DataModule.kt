@@ -6,6 +6,6 @@ import org.koin.dsl.module
 
 val DataModule = module {
   single<CurrencyRepository> {
-    CurrencyRepositoryImpl(get())
+    CurrencyRepositoryImpl(get(), get())
   }
 }
