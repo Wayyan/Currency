@@ -94,8 +94,4 @@ dependencies {
   //koin for di
   koinAndroid()
 
-  //glide
-  implementation(Glide.glide)
-  annotationProcessor(Glide.compiler)
-
 }
