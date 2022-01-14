@@ -1,3 +1,7 @@
 <resources>
-  <string name="app_name">Currency</string>
+  <string name="lbl_retry">Retry</string>
+  <string name="lbl_amount">Amount</string>
+  <string name="lbl_default_amount">1.0</string>
+  <string name="lbl_equivalent_to">Equivalent To</string>
+  <string name="lbl_choose_currency">Choose Currency</string>
 </resources>

@@ -84,9 +84,6 @@ dependencies {
   //timber
   implementation(CommonLibs.timber)
 
-  //zg-uni
-  implementation(MDetect.mdetect)
-
   //Test
   testImplementation(CommonLibs.junit)
   mockito()
@@ -97,10 +94,4 @@ dependencies {
   //koin for di
   koinAndroid()
 
-  //glide
-  implementation(Glide.glide)
-  annotationProcessor(Glide.compiler)
-
-  //image
-  implementation ("com.github.chrisbanes:PhotoView:2.3.0")
 }

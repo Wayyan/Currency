@@ -20,12 +20,11 @@ fun DependencyHandler.koinCore() {
 
 object KoinDep {
 
-  private const val version = "3.1.2" //old 2.2.3
+  private const val version = "3.1.2"
 
   const val gradle_plugin = "io.insert-koin:koin-gradle-plugin:$version"
 
-  const val core = "io.insert-koin:koin-core:$version" //old org.koin
- // const val core_ext = "io.insert-koin:koin-core-ext:$version"
+  const val core = "io.insert-koin:koin-core:$version"
   const val test = "io.insert-koin:koin-test:$version"
 
   const val android = "io.insert-koin:koin-android:$version"
